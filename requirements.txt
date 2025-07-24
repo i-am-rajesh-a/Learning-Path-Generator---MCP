@@ -1,6 +1,7 @@
-langchain
-langgraph
-langchain-mcp-adapters
-langchain-google-genai
-streamlit
+flask
+flask-cors
 python-dotenv
+langchain-core
+langchain-google-genai
+langchain-mcp-adapters
+langgraph
