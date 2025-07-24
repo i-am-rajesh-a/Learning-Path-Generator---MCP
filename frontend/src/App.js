@@ -128,12 +128,10 @@ function App() {
               </span>
               Your Learning Path
             </h2>
-            <div className="chat-messages">
-              {learningPath.map((item, idx) => (
-                <div key={idx} className="chat-bubble left">
-                  <ReactMarkdown>{item}</ReactMarkdown>
-                </div>
-              ))}
+            <div className="chat-single-response">
+              <ReactMarkdown>
+                {learningPath.join('\n\n')}
+              </ReactMarkdown>
             </div>
           </div>
         )}
