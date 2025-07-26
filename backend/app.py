@@ -5,6 +5,11 @@ import os
 from dotenv import load_dotenv
 import time
 
+
+
+# Your existing routes go below this
+
+
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:3000"])
 load_dotenv()
@@ -20,6 +25,10 @@ print("YOUTUBE_PIPEDREAM_URL:", YOUTUBE_PIPEDREAM_URL)
 print("DRIVE_PIPEDREAM_URL:", DRIVE_PIPEDREAM_URL)
 print("NOTION_PIPEDREAM_URL:", NOTION_PIPEDREAM_URL)
 
+@app.route("/")
+def home():
+    return "✅ Flask backend is running!"
+    
 @app.route('/generate-path', methods=['GET', 'POST'])
 def generate_path():
     if request.method == 'POST':
