@@ -11,14 +11,12 @@ import time
 
 
 app = Flask(__name__)
-# Allow all origins (less secure but more flexible)
-CORS(app)
-
-# Or allow a broader range of domains
 CORS(app, origins=[
     "http://localhost:3000",
-    "https://learning-path-generator-fiu1y891w.vercel.app"
+    "https://learning-path-generator-fiu1y891w.vercel.app",
+    "https://learning-path-generator-io4sv3wer.vercel.app"
 ])
+
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
