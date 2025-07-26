@@ -11,11 +11,12 @@ import time
 
 
 app = Flask(__name__)
-CORS(app, origins=[
+CORS(app, resources={r"/*": {"origins": [
     "http://localhost:3000",
     "https://learning-path-generator-fiu1y891w.vercel.app",
-    "https://learning-path-generator-lcw4uft9w.vercel.app/"
-])
+    "https://learning-path-generator-io4sv3wer.vercel.app",
+    "https://learning-path-generator-lcw4uft9w.vercel.app"
+]}})
 
 load_dotenv()
 
