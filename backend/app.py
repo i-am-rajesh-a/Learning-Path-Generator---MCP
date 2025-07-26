@@ -15,7 +15,10 @@ app = Flask(__name__)
 CORS(app)
 
 # Or allow a broader range of domains
-CORS(app, origins=["http://localhost:3000", "https://*.vercel.app"])
+CORS(app, origins=[
+    "http://localhost:3000",
+    "https://learning-path-generator-fiu1y891w.vercel.app"
+])
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
