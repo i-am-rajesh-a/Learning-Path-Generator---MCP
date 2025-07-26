@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactMarkdown from 'react-markdown';
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const [userGoal, setUserGoal] = useState("");
@@ -19,17 +20,14 @@ function App() {
     setStatusMessage("Generating your learning path...");
     setLearningPath([]);
     try {
-      const API_URL = "http://127.0.0.1:5000/generate-path";
+      const backendUrl = process.env.REACT_APP_BACKEND_URL;
+      const API_URL = `${backendUrl}/generate-path`;
       console.log("Sending request with payload:", { user_goal: userGoal, secondary_tool: secondaryTool });
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          user_goal: userGoal,
-          secondary_tool: secondaryTool,
-        }),
+      const response = await axios.post(API_URL, {
+        user_goal: userGoal,
+        secondary_tool: secondaryTool,
       });
-      const data = await response.json();
+      const data = response.data;
       console.log("API response:", data);
       if (data.messages && data.messages.length > 0) {
         setStatusMessage("Learning path generation complete!");
@@ -40,9 +38,9 @@ function App() {
       if (data.connection_links) {
         console.log("Connection links:", data.connection_links);
       }
-    } catch (err) {
-      console.error("Fetch error:", err);
-      setStatusMessage(`Error: ${err.message}. Check if the server is running on http://127.0.0.1:5000.`);
+    } catch (error) {
+      console.error(error);
+      setStatusMessage(`Error: ${error.message}. Check if the server is running on http://127.0.0.1:5000.`);
     }
     setIsGenerating(false);
   };
