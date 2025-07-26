@@ -30,6 +30,7 @@ General Instructions & Guidelines:
 9. If you are unable to find a previously created playlist by you, try the step 6 again.
 10. Act like a team player, coordinating between tools.
 11. Make the response as a markdown format.
+12. Make the document/notion page as a public document/notion page.
 
 Learning path sample format within a day/section (to be used with overall document titles and headers):
 Day X:
