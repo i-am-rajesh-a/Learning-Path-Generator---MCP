@@ -11,12 +11,18 @@ import time
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": [
-    "http://localhost:3000",
-    "https://learning-path-generator-fiu1y891w.vercel.app",
-    "https://learning-path-generator-io4sv3wer.vercel.app",
-    "https://learning-path-generator-lcw4uft9w.vercel.app"
-]}})
+CORS(app, resources={r"/*": {
+    "origins": [
+        "http://localhost:3000",
+        "https://learning-path-generator-fiu1y891w.vercel.app",
+        "https://learning-path-generator-io4sv3wer.vercel.app",
+        "https://learning-path-generator-lcw4uft9w.vercel.app"
+    ],
+    "supports_credentials": True,
+    "allow_headers": "*",
+    "methods": ["GET", "POST", "OPTIONS"]
+}})
+
 
 load_dotenv()
 
